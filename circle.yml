@@ -1,0 +1,9 @@
+machine:
+  environment:
+    LINUX: "`case $(uname -s) in Linux) true ;; *) false ;; esac`"
+    OS_X: "`case $(uname -s) in Darwin) true ;; *) false ;; esac`"
+
+test:
+  override:
+    - $LINUX && echo linux one && echo linux two
+    - $OS_X && echo os x one && echo os x two
